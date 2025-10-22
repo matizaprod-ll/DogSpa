@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pastelería MUSSI</title>
+
+<style>
+/* ===================== Body ===================== */
+body {
+ margin: 0; /* Tip: elimina los márgenes por defecto del navegador */
+  font-family: sans-serif; /* Tip: usa una fuente limpia y moderna */
+  background-image: url("fondo1.png"); /* Tip: imagen de fondo principal del sitio */
+  background-size: cover; /* Tip: la imagen cubre toda la pantalla */
+  background-position: center; /* Tip: centra la imagen en el fondo */
+  background-attachment: fixed; /* Tip: fondo fijo al hacer scroll (efecto parallax) */
+  }
+
+/* ===================== Header ===================== */
+header {
+  position: fixed; /* Tip: siempre visible */
+  top: 450px; /* Tip: distancia desde la parte superior */
+  left: 20px; /* Tip: distancia desde la izquierda */
+  z-index: 10; /* Tip: asegura que esté por encima de otros elementos */
+}
+
+/* ===================== Usuario ===================== */
+.user-link {
+  position: fixed; /* Tip: usuario siempre visible */
+  top: 20px; /* Tip: distancia desde arriba */
+  right: 20px; /* Tip: distancia desde la derecha */
+  z-index: 10; /* Tip: por encima del contenido */
+}
+
+.user-link img {
+  width: 80px; /* Tip: tamaño del icono */
+  height: auto; /* Tip: mantener proporción */
+}
+
+/* ===================== Botones ===================== */
+.buttons {
+  display: flex; /* Tip: activar Flexbox */
+  flex-direction: column; /* Tip: apilar verticalmente */
+  gap: 15px; /* Tip: espacio entre botones */
+  align-items: flex-start; /* Tip: alinear a la izquierda */
+  margin: 20px; /* Tip: separación del contenido */
+  padding: 15px; /* Tip: padding interno */
+  border-radius: 10px; /* Tip: bordes redondeados */
+  
+}
+
+.menu-btn, .soporte, .descripcion {
+  padding: 10px 20px; /* Tip: tamaño de botón */
+  font-size: 20px; /* Tip: texto más grande */
+  cursor: pointer; /* Tip: cambia el cursor al pasar */
+  background: rgba(0,0,0,0.5); /* Tip: fondo semi-transparente */
+  color: #fff; /* Tip: color del texto */
+  border: none; /* Tip: quitar borde por defecto */
+  border-radius: 5px; /* Tip: bordes redondeados */
+  transition: all 0.3s ease; /* Tip: transición suave */
+}
+
+.menu-btn:hover, .soporte:hover, .descripcion:hover {
+  background: rgba(153,9,110,0.7); /* Tip: cambio de color al hover */
+  box-shadow: 0 0 5px rgba(255,159,67,0.7); /* Tip: brillo al pasar */
+}
+
+/* ===================== Descripción ===================== */
+
+
+
+/* ===================== Tabla ===================== */
+.reposteria {
+  display: none; /* Tip: oculta al inicio */
+  margin: 30px auto; /* Tip: centrado y separación */
+  text-align: center; /* Tip: centrar contenido */
+  width: 90%; /* Tip: ocupar casi todo el ancho */
+  color:rgb(255, 255, 255);
+}
+
+.reposteria table {
+  width: 100%; /* Tip: tabla ocupa todo el contenedor */
+  border-collapse: collapse; /* Tip: quita espacios entre celdas */
+}
+
+.reposteria th, .reposteria td {
+  padding: 15px; /* Tip: espacio interno */
+  font-size: 20px; /* Tip: texto legible */
+  text-align: center; /* Tip: centrado */
+}
+
+.reposteria th {
+  background: rgba(0,0,0,0.5); /* Tip: fondo oscuro */
+  color: #fff; /* Tip: texto blanco */
+}
+
+.reposteria td {
+  background: rgba(0,0,0,0.5); /* Tip: fondo para celdas */
+  color: #fff; /* Tip: texto blanco */
+}
+
+.reposteria caption {
+  caption-side: top; /* Tip: título arriba de la tabla */
+  font-size: 2em; /* Tip: más grande */
+  font-weight: bold; /* Tip: negrita */
+  margin-bottom: 15px; /* Tip: separación con la tabla */
+}
+
+/* ===================== Botón agregar ===================== */
+.add-btn {
+  font-size: 20px; /* Tip: tamaño del texto */
+  background: rgba(153,9,110,0.5); /* Tip: fondo */
+  color: #fff; /* Tip: color del texto */
+  border: none; /* Tip: sin borde */
+  padding: 5px 10px; /* Tip: padding interno */
+  border-radius: 5px; /* Tip: bordes redondeados */
+  cursor: pointer; /* Tip: cursor mano */
+  transition: all 0.3s ease; /* Tip: animación suave */
+}
+
+.add-btn:hover {
+  background: rgba(153,9,110,0.8); /* Tip: efecto hover */
+  box-shadow: 0 0 5px #ff9f43; /* Tip: sombra */
+}
+
+/* ===================== Inputs ===================== */
+input[type="number"] {
+  width: 60px; /* Tip: ancho campo */
+  padding: 5px; /* Tip: espacio interno */
+  border: 2px solid #fff; /* Tip: borde blanco */
+  border-radius: 5px; /* Tip: bordes redondeados */
+  font-size: 16px; /* Tip: tamaño del texto */
+  text-align: center; /* Tip: centrar número */
+  outline: none; /* Tip: quitar borde azul */
+  transition: all 0.3s ease; /* Tip: animación suave */
+}
+
+input[type="number"]:hover,
+input[type="number"]:focus {
+  border-color: rgba(153,9,110,0.7); /* Tip: cambio borde al foco */
+  box-shadow: 0 0 5px rgba(153,9,110,0.5); /* Tip: sombra */
+}
+
+/* ===================== Botón finalizar ===================== */
+.finish-btn {
+  font-size: 20px; /* Tip: tamaño del botón */
+  padding: 10px 20px; /* Tip: padding */
+  background: rgba(153,9,110,0.5); /* Tip: fondo */
+  color: #fff; /* Tip: texto blanco */
+  border: none; /* Tip: sin borde */
+  border-radius: 5px; /* Tip: redondeado */
+  cursor: pointer; /* Tip: cursor mano */
+  transition: all 0.3s ease; /* Tip: animación */
+}
+
+.finish-btn:hover {
+  background: rgba(153,9,110,0.8); /* Tip: hover */
+  box-shadow: 0 0 5px #e63803; /* Tip: brillo */
+}
+
+/* ===================== Carrito ===================== */
+#carrito {
+  margin-top: 20px; /* Tip: separación del contenido */
+  font-size: 18px; /* Tip: tamaño texto */
+  text-align: center; /* Tip: centrado */
+}
+
+/* ===================== Responsivo ===================== */
+@media (max-width: 768px) {
+  .description { font-size: 16px; padding: 20px; } /* Tip: ajustar texto en móviles */
+  .menu-btn, .soporte, .add-btn, .finish-btn { font-size: 16px; padding: 8px 15px; } /* Tip: botones más pequeños */
+  .reposteria th, .reposteria td { font-size: 16px; padding: 10px; } /* Tip: tabla más compacta */
+  header img { height: 100px; max-width: 120px; } /* Tip: logo más pequeño en móviles */
+}
+</style>
+</head>
+
+<body>
+
+
+<!-- Usuario -->
+<a href="registro_usuario.html" class="user-link" title="Registrate" loading="lazy">
+  <img src="registro.png" alt="Usuario">
+</a>
+
+<!-- Botones -->
+<div class="buttons">
+  <button class="menu-btn" onclick="toggenmenu()">Pedido en línea</button>
+  <button class="soporte">Servicio al cliente</button>
+  <button class="descripcion" onclick="window.location.href='descripcion.html'">Conócenos</button>
+
+</div>
+
+<!-- Tabla de Alimentos -->
+<div class="reposteria" id="menu">
+  <table>
+    <caption>MENÚ</caption>
+    <thead>
+      <tr>
+        <th>Producto</th>
+        <th>Precio</th>
+        <th>Cantidad</th>
+        <th>Agregar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Buñuelos</td>
+        <td>$25</td>
+        <td><input type="number" id="cant-bunuelo" min="1" value="1"></td>
+        <td><button class="add-btn" onclick="agregar('Buñuelos', 25, 'cant-bunuelo')">Agregar</button></td>
+      </tr>
+      <tr>
+        <td>Baguette</td>
+        <td>$15</td>
+        <td><input type="number" id="cant-baguette" min="1" value="1"></td>
+        <td><button class="add-btn" onclick="agregar('Baguette', 15, 'cant-baguette')">Agregar</button></td>
+      </tr>
+      <tr>
+        <td>Chileidos</td>
+        <td>$12</td>
+        <td><input type="number" id="cant-chileidos" min="1" value="1"></td>
+        <td><button class="add-btn" onclick="agregar('Chileidos', 12, 'cant-chileidos')">Agregar</button></td>
+      </tr>
+      <tr>
+        <td>Polainas</td>
+        <td>$10</td>
+        <td><input type="number" id="cant-polainas" min="1" value="1"></td>
+        <td><button class="add-btn" onclick="agregar('Polainas', 10, 'cant-polainas')">Agregar</button></td>
+      </tr>
+      <tr>
+        <td>Pastel</td>
+        <td>$25</td>
+        <td><input type="number" id="cant-pastel" min="1" value="1"></td>
+        <td><button class="add-btn" onclick="agregar('Pastel', 25, 'cant-pastel')">Agregar</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <button class="finish-btn" onclick="finalizarCompra()">Finalizar compra</button>
+
+  <div id="carrito">
+    <h3>Carrito:</h3>
+    <ul id="lista-carrito"></ul>
+    <p><strong>Total: $<span id="total">0</span></strong></p>
+  </div>
+</div>
+
+<!-- ===================== Scripts ===================== -->
+<script>
+// Mostrar u ocultar menú
+function toggenmenu() {
+  const menuDiv = document.getElementById("menu");
+  menuDiv.style.display = (menuDiv.style.display === "block") ? "none" : "block"; // Tip: toggle simple
+}
+
+// Carrito
+let carrito = []; // Tip: array para almacenar productos
+let total = 0;    // Tip: total de compra
+
+function agregar(nombre, precio, idCantidad) {
+  const cantidad = parseInt(document.getElementById(idCantidad).value);
+  if (cantidad < 1) return; // Tip: evita cantidad menor a 1
+
+  const existing = carrito.find(item => item.nombre === nombre); // Tip: verifica si ya existe
+  if (existing) {
+    existing.cantidad += cantidad; // Tip: suma cantidad si ya existe
+  } else {
+    carrito.push({ nombre, precio, cantidad }); // Tip: agrega nuevo producto
+  }
+
+  total += precio * cantidad; // Tip: actualizar total
+  actualizarCarrito(); // Tip: refrescar carrito
+}
+
+function actualizarCarrito() {
+  const lista = document.getElementById("lista-carrito");
+  lista.innerHTML = ""; // Tip: limpiar lista
+
+  carrito.forEach((item, index) => {
+    const li = document.createElement("li");
+    li.textContent = `${item.cantidad} × ${item.nombre} ($${item.precio} c/u) `;
+
+    // Botón para quitar 1 unidad
+    const btnQuitar = document.createElement("button");
+    btnQuitar.textContent = "–";
+    btnQuitar.style.marginLeft = "10px";
+    btnQuitar.onclick = () => quitarUnidad(index);
+
+    // Botón para eliminar todo el producto
+    const btnEliminar = document.createElement("button");
+    btnEliminar.textContent = "🗑️";
+    btnEliminar.style.marginLeft = "5px";
+    btnEliminar.onclick = () => eliminarProducto(index);
+
+    li.appendChild(btnQuitar);
+    li.appendChild(btnEliminar);
+    lista.appendChild(li);
+  });
+
+  document.getElementById("total").textContent = total.toFixed(2); // Tip: actualizar total visible
+}
+
+// 🟡 Quitar una unidad
+function quitarUnidad(index) {
+  const item = carrito[index];
+  if (!item) return;
+
+  item.cantidad -= 1;
+  total -= item.precio;
+
+  if (item.cantidad <= 0) {
+    carrito.splice(index, 1); // Tip: eliminar si llega a 0
+  }
+
+  if (total < 0) total = 0;
+  actualizarCarrito();
+}
+
+// 🔴 Eliminar todo el producto
+function eliminarProducto(index) {
+  const item = carrito[index];
+  if (!item) return;
+
+  total -= item.precio * item.cantidad;
+  carrito.splice(index, 1);
+
+  if (total < 0) total = 0;
+  actualizarCarrito();
+}
+
+function finalizarCompra() {
+  if (carrito.length === 0) {
+    alert("Agrega al menos un producto antes de finalizar la compra.");
+    return;
+  }
+  alert("Compra finalizada. ¡Gracias por tu pedido!");
+  carrito = [];
+  total = 0;
+  actualizarCarrito();
+  document.getElementById("menu").style.display = "none";
+}
+</script>
